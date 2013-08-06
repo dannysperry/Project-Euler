@@ -1,6 +1,7 @@
-# By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+# The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 # 
-# What is the 10 001st prime number?
+# Find the sum of all the primes below two million.
+
 
 class Fixnum
 
@@ -12,20 +13,18 @@ class Fixnum
   end
 
   def primes
-    arr = (2..1000000).to_a
-    (2..Math.sqrt(1000000)).to_a.each do |i|
+    arr = (2..self).to_a
+    (2..Math.sqrt(self)).each do |i|
       if i.prime?
         arr = arr.reject {|x| x%i==0 unless x==i}
       end
     end
-    arr[self]
+    arr.inject(0,:+)
   end   
      
-end  
+end
 
 now = Time.now
-10000.primes # => 104743
+2000000.primes # => 142913828922
 later = Time.now
-later-now # => 1.869425
-
-
+later-now # => 4.664756
