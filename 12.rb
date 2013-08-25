@@ -34,8 +34,7 @@ class Fixnum
      
   def checkin
     (1..self).each do |x| 
-      i = x.natural
-      return i if i.factors.length > 500
+      return x.natural if x.natural.factors.length > 500
     end 
   end
   
@@ -44,6 +43,6 @@ end
 
 
 now = Time.now
-99999.checkin # => 76576500
+999999.checkin # => 76576500
 later = Time.now
-later-now # => 16.335739
+later-now # => 16.194509
