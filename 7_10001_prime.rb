@@ -5,27 +5,25 @@
 class Fixnum
 
   def prime?
-    (2...self).each do |i|
+    (3..Math.sqrt(self)).each do |i|
      return false if self%i==0 
     end                        
     true
   end
 
   def primes
-    arr = (2..1000000).to_a
-    (2..Math.sqrt(1000000)).to_a.each do |i|
-      if i.prime?
-        arr = arr.reject {|x| x%i==0 unless x==i}
-      end
+    arr,i = [2,3],3
+    until arr.length == self
+      i+=2
+      arr << i if i.prime?
     end
-    arr[self]
+    i
   end   
      
 end  
 
 now = Time.now
-10000.primes # => 104743
+10000.primes # => 104729
 later = Time.now
-later-now # => 1.869425
-
+later-now # => 0.612209
 

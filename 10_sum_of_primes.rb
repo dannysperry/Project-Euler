@@ -23,8 +23,12 @@ class Fixnum
   end   
      
 end
+# 
+# now = Time.now
+# 2000000.primes # => 142913828922
+# later = Time.now
+# later-now # => 4.661413   
 
-now = Time.now
-2000000.primes # => 142913828922
-later = Time.now
-later-now # => 4.664756
+3.step(6,2) {|x|puts x} # => 3
+# >> 3
+# >> 5
